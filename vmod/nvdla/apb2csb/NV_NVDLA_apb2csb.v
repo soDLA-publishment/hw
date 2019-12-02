@@ -6,9 +6,9 @@
 // this distribution for more information.
 // ================================================================
 
-// File Name: NV_NVDLA_apb2csb_with_wrapper.v
+// File Name: NV_NVDLA_apb2csb.v
 
-module NV_NVDLA_apb2csb_with_wrapper(
+module NV_NVDLA_apb2csb(
    pclk
   ,prstn
   ,csb2nvdla_ready
