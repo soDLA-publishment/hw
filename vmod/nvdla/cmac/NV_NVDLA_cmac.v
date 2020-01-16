@@ -19,6 +19,11 @@ module NV_NVDLA_cmac (
   ,global_clk_ovr_on_sync        //|< i
   ,nvdla_core_clk                //|< i
   ,nvdla_core_rstn               //|< i
+//: for(my $i=0; $i<64 ; $i++){
+//: print qq(
+//: ,sc2mac_dat_data${i} //|< i )
+//: }
+//| eperl: generated_beg (DO NOT EDIT BELOW)
   ,sc2mac_dat_data0       //|< i 
 	,sc2mac_dat_data1       //|< i 
 	,sc2mac_dat_data2       //|< i 
@@ -83,10 +88,16 @@ module NV_NVDLA_cmac (
 	,sc2mac_dat_data61       //|< i 
 	,sc2mac_dat_data62       //|< i 
 	,sc2mac_dat_data63       //|< i 
+//| eperl: generated_end (DO NOT EDIT ABOVE)
   ,sc2mac_dat_mask               //|< i
   ,sc2mac_dat_pd                 //|< i
   ,sc2mac_dat_pvld               //|< i
   ,sc2mac_wt_data0		//|< i 
+//: for(my $i=0; $i<64 ; $i++){
+//: print qq(
+//: ,sc2mac_wt_data${i} //|< i )
+//: }
+//| eperl: generated_beg (DO NOT EDIT BELOW)
 	,sc2mac_wt_data1		//|< i 
 	,sc2mac_wt_data2		//|< i 
 	,sc2mac_wt_data3		//|< i 
@@ -150,14 +161,20 @@ module NV_NVDLA_cmac (
 	,sc2mac_wt_data61		//|< i 
 	,sc2mac_wt_data62		//|< i 
 	,sc2mac_wt_data63		//|< i 
-  ,sc2mac_wt_mask                //|< i
-  ,sc2mac_wt_pvld                //|< i
-  ,sc2mac_wt_sel                 //|< i
-  ,tmc2slcg_disable_clock_gating //|< i
-  ,cmac_a2csb_resp_pd            //|> o
-  ,cmac_a2csb_resp_valid         //|> o
-  ,csb2cmac_a_req_prdy           //|> o
-  ,mac2accu_data0			//|> o 
+//| eperl: generated_end (DO NOT EDIT ABOVE)
+  	,sc2mac_wt_mask                //|< i
+  	,sc2mac_wt_pvld                //|< i
+ 	,sc2mac_wt_sel                 //|< i
+ 	,tmc2slcg_disable_clock_gating //|< i
+ 	,cmac_a2csb_resp_pd            //|> o
+ 	,cmac_a2csb_resp_valid         //|> o
+//: for(my $i=0; $i<32/2 ; $i++){
+//: print qq(
+//: ,mac2accu_data${i} //|> o )
+//: }
+//| eperl: generated_beg (DO NOT EDIT BELOW)
+  	,csb2cmac_a_req_prdy           //|> o
+  	,mac2accu_data0			//|> o 
 	,mac2accu_data1			//|> o 
 	,mac2accu_data2			//|> o 
 	,mac2accu_data3			//|> o 
@@ -173,6 +190,7 @@ module NV_NVDLA_cmac (
 	,mac2accu_data13		//|> o 
 	,mac2accu_data14		//|> o 
 	,mac2accu_data15		//|> o 
+//| eperl: generated_end (DO NOT EDIT ABOVE)
   ,mac2accu_mask                 //|> o
   ,mac2accu_mode                 //|> o
   ,mac2accu_pd                   //|> o
@@ -193,7 +211,12 @@ module NV_NVDLA_cmac (
 
 	output         mac2accu_pvld;   /* data valid */
 	output   [15:0] mac2accu_mask;
-	output                         mac2accu_mode;
+	output          mac2accu_mode;
+//: for(my $i=0; $i<32/2 ; $i++){
+//: print qq(
+//: output [22 -1:0] mac2accu_data${i}; //|> o )
+//: }
+//| eperl: generated_beg (DO NOT EDIT BELOW)
 	output	[21:0]	mac2accu_data0;                //|> o 
 	output	[21:0]	mac2accu_data1;                //|> o 
 	output	[21:0]	mac2accu_data2;                //|> o 
@@ -210,10 +233,15 @@ module NV_NVDLA_cmac (
 	output	[21:0]	mac2accu_data13;                //|> o 
 	output	[21:0]	mac2accu_data14;                //|> o 
 	output	[21:0]	mac2accu_data15;                //|> o 
+//| eperl: generated_end (DO NOT EDIT ABOVE)
 	output   [8:0] mac2accu_pd;
-
 	input         sc2mac_dat_pvld;     /* data valid */
 	input [63:0] sc2mac_dat_mask;
+//: for(my $i=0; $i<64 ; $i++){
+//: print qq(
+//: input [8 -1:0] sc2mac_dat_data${i}; //|< i )
+//: }
+//| eperl: generated_beg (DO NOT EDIT BELOW)
 	input	[7:0]	sc2mac_dat_data0;       //|< i 
 	input	[7:0]	sc2mac_dat_data1;       //|< i 
 	input	[7:0]	sc2mac_dat_data2;       //|< i 
@@ -278,11 +306,16 @@ module NV_NVDLA_cmac (
 	input	[7:0]	sc2mac_dat_data61;       //|< i 
 	input	[7:0]	sc2mac_dat_data62;       //|< i 
 	input	[7:0]	sc2mac_dat_data63;       //|< i 
+//| eperl: generated_end (DO NOT EDIT ABOVE)
 	input   [8:0] sc2mac_dat_pd;
-
 	input         sc2mac_wt_pvld;     /* data valid */
 	input [63:0] sc2mac_wt_mask;
-input	[7:0]	sc2mac_wt_data0;       //|< i
+//: for(my $i=0; $i<64 ; $i++){
+//: print qq(
+//: input [8 -1:0] sc2mac_wt_data${i}; //|< i )
+//: }
+//| eperl: generated_beg (DO NOT EDIT BELOW)
+	input	[7:0]	sc2mac_wt_data0;       //|< i
 	input	[7:0]	sc2mac_wt_data1;       //|< i
 	input	[7:0]	sc2mac_wt_data2;       //|< i
 	input	[7:0]	sc2mac_wt_data3;       //|< i
@@ -346,6 +379,7 @@ input	[7:0]	sc2mac_wt_data0;       //|< i
 	input	[7:0]	sc2mac_wt_data61;       //|< i
 	input	[7:0]	sc2mac_wt_data62;       //|< i
 	input	[7:0]	sc2mac_wt_data63;       //|< i
+//| eperl: generated_end (DO NOT EDIT ABOVE)
 	input   [15:0] sc2mac_wt_sel;
 	input   dla_clk_ovr_on_sync;
 	input   global_clk_ovr_on_sync;
